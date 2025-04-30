@@ -1,0 +1,17 @@
+class Solution {
+
+    public boolean sentencePalindrome(String s) {
+       StringBuilder sb = new StringBuilder();
+       for(char ch:s.toCharArray()){
+           if(Character.isLetterOrDigit(ch)){
+               sb.append(Character.toLowerCase(ch));
+           }
+       }
+      
+       StringBuilder sbRev = new StringBuilder(sb.toString());
+       sbRev.reverse();
+       return sbRev.toString().equals(sb.toString());
+       
+        
+    }
+}
