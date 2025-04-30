@@ -1,0 +1,25 @@
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class strings {
+
+	public static void main(String[] args) {
+		String str = "((()(()))";
+		int counter=0,flag=0;
+		for(char ch:str.toCharArray()) {
+			if(ch=='(')counter++;
+			else if(ch==')') counter--;
+			if(counter<0) {
+				flag=1;
+				break;
+			}
+			
+		}
+		if(counter!=0)flag=1;
+		if(flag==1)
+			System.out.println("Not a balanced paranthesis");
+		else
+			System.out.println("Balanced paranthesis");
+	}
+}
