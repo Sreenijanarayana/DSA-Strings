@@ -1,0 +1,31 @@
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+
+       int[] pCount = new int[26];
+       int[] window = new int[26];
+
+       List<Integer> ls = new ArrayList<>();
+
+       for(char ch : p.toCharArray())
+        pCount[ch-'a']++;
+        int count=0, n=p.length();
+        for(int i=0;i<s.length();i++){
+            char ch = s.charAt(i);
+            window[ch-'a']++;
+          
+            //if size of the window exceeds we need to remove one char from front
+            if(i>=n){
+                window[s.charAt(i-n)-'a']--;
+                
+            }
+            //check to find if both are anagrams or not
+            if(Arrays.equals(window,pCount))
+            {
+                ls.add(i-n+1);
+            }
+
+        }
+        return ls;
+       
+    }
+}
